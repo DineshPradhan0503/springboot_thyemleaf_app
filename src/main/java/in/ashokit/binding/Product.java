@@ -1,9 +1,22 @@
 package in.ashokit.binding;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Product {
+	@NotNull(message="Id is required")
 	private Integer pid;
+	
+	@NotNull(message="Name is required")
+	@Size(min=3,max=8, message= "Name must be between 3 and 8 characters")
 	private String pname;
+	
+	@NotNull(message="Price is required")
 	private Double price;
+	
+	public Product() {
+		
+	}
 	public Integer getPid() {
 		return pid;
 	}
@@ -25,7 +38,6 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
-	}
-	
+	}	
 	
 }
